@@ -1,0 +1,35 @@
+# ==============================================================================
+# Simulación Batch: Cryptococcus neoformans (Forma Estándar / Levadura Típica)
+# ==============================================================================
+/control/verbose 1
+/run/verbose 1
+/event/verbose 0
+/tracking/verbose 0
+
+# 1. Física de estructura de trazas Geant4-DNA (option2 u option8)
+/dna/physics/selectOption option2
+
+# 2. Parámetros geométricos y bioquímicos de C. neoformans estándar
+/cell/setType cryptococcus
+/cell/crypto/setBodyDiameter 6.0 um
+/cell/crypto/setCapsuleThickness 1.2 um
+/cell/crypto/setWallThickness 150.0 nm
+/cell/crypto/setAspectRatio 1.10
+/cell/crypto/setMelaninFraction 0.10
+
+# 3. Inicializar kernel y activar etapa química (1 ps a 1 us)
+/run/initialize
+/chem/activate true
+
+# 4. Nombre base de los archivos CSV de salida
+/analysis/setFileName CryptoStandard_Output
+
+# 5. Configurar fuente de radiación ionizante (electrones de 30 keV)
+/gun/particle e-
+/gun/energy 30 keV
+/beam/startZ -5.0 um
+/beam/spotRadius 1.0 um
+
+# 6. Ejecutar simulación (10 eventos con química completa 1 ps - 1 us)
+/run/beamOn 10
+

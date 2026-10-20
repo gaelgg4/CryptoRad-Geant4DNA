@@ -1,0 +1,33 @@
+# ==============================================================================
+# Simulación Batch: Célula Humana Epitelial de Referencia (Cúbica Polarizada)
+# ==============================================================================
+/control/verbose 1
+/run/verbose 1
+/event/verbose 0
+/tracking/verbose 0
+
+# 1. Física de estructura de trazas Geant4-DNA (option2 u option8)
+/dna/physics/selectOption option2
+
+# 2. Parámetros geométricos de la célula epitelial humana
+/cell/setType human
+/cell/human/setWidth 12.0 um
+/cell/human/setHeight 12.0 um
+/cell/human/setGlycocalyxThickness 80.0 nm
+
+# 3. Inicializar kernel y activar etapa química (1 ps a 1 us)
+/run/initialize
+/chem/activate true
+
+# 4. Nombre base de los archivos CSV de salida
+/analysis/setFileName HumanEpithelial_Output
+
+# 5. Configurar fuente de radiación ionizante bajo las mismas condiciones (30 keV)
+/gun/particle e-
+/gun/energy 30 keV
+/beam/startZ -6.2 um
+/beam/spotRadius 1.0 um
+
+# 6. Ejecutar simulación (10 eventos con química completa 1 ps - 1 us)
+/run/beamOn 10
+

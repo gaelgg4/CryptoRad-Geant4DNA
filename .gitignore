@@ -1,0 +1,21 @@
+# Directorio de compilación de CMake / Geant4
+build/
+cmake-build-*/
+
+# Entornos virtuales de Python y cachés
+tesis_g4/venv/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Archivos de sistema macOS y editores
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+
+# Archivos temporales de Geant4
+G4History.macro
+*.root

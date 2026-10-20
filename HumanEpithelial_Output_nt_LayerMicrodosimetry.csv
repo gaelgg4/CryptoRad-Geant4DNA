@@ -1,0 +1,24 @@
+#class tools::wcsv::ntuple
+#title Energia depositada (eV) y Dosis absorbida (Gy) por capa celular
+#separator 44
+#vector_separator 59
+#column int EventID
+#column string CellType
+#column double Edep_OuterLayer_eV
+#column double Edep_WallOrCortex_eV
+#column double Edep_Cytoplasm_eV
+#column double Edep_Nucleus_eV
+#column double Dose_OuterLayer_Gy
+#column double Dose_WallOrCortex_Gy
+#column double Dose_Cytoplasm_Gy
+#column double Dose_Nucleus_Gy
+0,Human_Epithelial_Reference,0,43.762,20447.4,9466.65,0,6.547e-05,0.00206407,0.0154854
+1,Human_Epithelial_Reference,63.3482,20.7508,19128.4,10754.8,0.000142567,3.10441e-05,0.00193093,0.0175925
+2,Human_Epithelial_Reference,81.161,177.789,13619.6,0,0.000182655,0.000265981,0.00137484,0
+3,Human_Epithelial_Reference,945.03,1041.15,20729.7,2995.02,0.00212681,0.00155761,0.00209257,0.0048992
+4,Human_Epithelial_Reference,128.546,72.4682,5552.88,3150.75,0.000289296,0.000108416,0.000560539,0.00515394
+5,Human_Epithelial_Reference,26.9262,238.829,10569.2,3696.2,6.05981e-05,0.000357299,0.00106692,0.00604617
+6,Human_Epithelial_Reference,0,192.795,25194.8,4581.13,0,0.00028843,0.0025433,0.00749373
+7,Human_Epithelial_Reference,370.805,552.819,13438.6,5784.7,0.000834506,0.000827044,0.00135657,0.00946252
+8,Human_Epithelial_Reference,209.286,96.686,6282.29,5413.82,0.000471003,0.000144647,0.00063417,0.00885582
+9,Human_Epithelial_Reference,299.271,68.769,6584.17,4667.27,0.000673516,0.000102882,0.000664644,0.00763463

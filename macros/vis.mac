@@ -1,0 +1,50 @@
+# ==============================================================================
+# Macro de visualizacion interactiva 3D (Qt / OpenGL) para Geant4-DNA
+# ==============================================================================
+/control/verbose 1
+/run/verbose 1
+
+# Seleccionar modelo fisico de Geant4-DNA (option2 por defecto u option8)
+/dna/physics/selectOption option2
+
+# Configurar geometria inicial: Cryptococcus neoformans (forma estandar)
+/cell/setType cryptococcus
+/cell/crypto/setBodyDiameter 6.0 um
+/cell/crypto/setCapsuleThickness 1.2 um
+/cell/crypto/setWallThickness 150.0 nm
+/cell/crypto/setAspectRatio 1.10
+/cell/crypto/setMelaninFraction 0.10
+
+# Inicializar el kernel de Geant4 y activar quimica de radiolisis
+/run/initialize
+/chem/activate true
+
+# Crear escena OpenGL y dibujar volumenes celulares
+/vis/open OGL 800x800-0+0
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+/vis/drawVolume
+
+# Configurar angulo de camara y estilo de superficie translucida
+/vis/viewer/set/viewpointThetaPhi 70 25 deg
+/vis/viewer/set/style surface
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/lineSegmentsPerCircle 60
+
+# Dibujar trayectorias fisicas y pasos quimicos
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+/vis/scene/add/axes 0 0 0 5 um
+/vis/scene/endOfEventAction accumulate
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+
+# Configuracion del haz para prueba visual (electron de 15 keV)
+/gun/particle e-
+/gun/energy 15 keV
+/beam/startZ -6.0 um
+/beam/spotRadius 1.5 um
+
